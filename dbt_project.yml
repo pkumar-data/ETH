@@ -37,13 +37,16 @@ models:
         - powerbi
         - report
       +schema: marts
-      stablecoin_activity_per_day: 
-        +post-hook:
-          - GRANT USAGE ON DATABASE DBT TO ROLE TESTER;
-          - GRANT USAGE ON SCHEMA DBT.DBT_PKUMAR_MARTS TO ROLE TESTER;
-    # Config indicated by + and applies to all files under models/example/
-    # example:
-    #   +materialized: view
+
+      analytics:
+        stablecoin_activity_per_day:
+          +enabled: true 
+          +post-hook:
+            - GRANT USAGE ON DATABASE DBT TO ROLE TESTER;
+            - GRANT USAGE ON SCHEMA DBT.DBT_PKUMAR_MARTS TO ROLE TESTER;
+      # Config indicated by + and applies to all files under models/example/
+      # example:
+      #   +materialized: view
 vars:
   token_address_var: 'asdfsfdsfdsfdsfdsfds'
   token_decimals_var: '6'
