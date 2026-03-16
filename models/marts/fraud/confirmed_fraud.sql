@@ -1,3 +1,5 @@
+{{ config(group = 'fraud_risk', access='private') }}
+
 select * 
 from {{ref('transcations_enriched')}}
 
