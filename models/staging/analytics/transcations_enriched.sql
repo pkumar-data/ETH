@@ -21,6 +21,7 @@ t.VALUE,
 t.RECEIPT_CONTRACT_ADDRESS,
 t.INPUT,
 tt.token_transfer_count,
+1 as field_1,
 
 case
     when t.RECEIPT_CONTRACT_ADDRESS != '' then 'contract_creation'
