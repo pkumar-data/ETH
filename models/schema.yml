@@ -1,6 +1,16 @@
 version: 2
 
 models:
+
+  - name: stg_token_transfers
+    description: Transcations in the Ethereum Blockchain
+    columns: 
+      - name: transaction_hash
+        data_tests:
+          - relationships:
+              to: ref('stg_transcations')
+              field: hash
+
   - name: stg_transcations
     description: Transcations in the Ethereum Blockchain
     columns: 
@@ -28,6 +38,9 @@ models:
       - name: type
         data_type: varchar
         description: ""
+        data_tests:
+          - accepted_values:
+              values: ['Hybrid', 'Crypto-backed', 'Fiat-backed']
 
       - name: symbol
         data_type: varchar
